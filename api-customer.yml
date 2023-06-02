@@ -4,7 +4,7 @@ spring:
   application:
     name: api-customer
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3307/checkAgro-dev
     username: usr-checkAgro
     password: pwd-checkAgro
