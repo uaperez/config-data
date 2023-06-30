@@ -1,0 +1,59 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: api-serie
+  zipkin:
+    baseUrl: http://localhost:9411/
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3308/movie-dev
+#    username: usr-movie
+#    password: pwd-movie
+#
+#  jpa:
+#    generate-ddl: true
+#    hibernate:
+#      enable_lazy_load_no_trans: true
+#      event:
+#        merge:
+#          entity_copy_observer: allow
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL55Dialect
+#        format_sql: true
+#    show-sql: false
+#Si quiere que ejecute con H2 y no con SQL descomente lo sigueinte, y comente el datasource anterior
+#  jpa:
+#    hibernate.ddl-auto: update
+#    generate-ddl: true
+#    show-sql: true
+#
+  data:
+    mongodb:
+      username: usr-serie-mongo
+      password: pwd-serie-mongo
+      database: serie-dev-mongo
+      port: 27017
+      host: localhost
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+info:
+  application:
+    name: api-serie
+
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8789/eureka/
